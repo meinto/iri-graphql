@@ -18,10 +18,10 @@ try {
   
   let enhanceConfig = {}
   switch (process.env.NODE_ENV) {
-    case ENV.DEV: 
+    case ENV.DEV:
       enhanceConfig = yaml.safeLoad(fs.readFileSync(path.resolve(__dirname, 'dev.config.yml'), 'utf8'))
       break
-    default: 
+    default:
       enhanceConfig = yaml.safeLoad(fs.readFileSync(path.resolve(__dirname, 'prd.config.yml'), 'utf8'))
       break
   }

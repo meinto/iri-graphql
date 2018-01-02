@@ -8,7 +8,7 @@ export const QUERY_DEFINITION = `
 `
 
 /* implementation */
-const getNodeInfo = async () => {
+const getNodeInfo = async() => {
 
   const options = {
     url: `http://${config.iri.domain}:${config.iri.port}`,
@@ -18,13 +18,13 @@ const getNodeInfo = async () => {
       'Content-Type': 'application/json',
     },
     data: JSON.stringify({
-      command: 'getNodeInfo'
-    })
+      command: 'getNodeInfo',
+    }),
   }
 
   return await new Promise(resolve => {
     curl.request(options, (err, data) => {
-      if (err) console.log(err, data)
+      if (err) console.log(err, data) // eslint-disable-line
       resolve(new Iri(JSON.parse(data)))
     })
   })

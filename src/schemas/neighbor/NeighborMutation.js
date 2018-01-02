@@ -1,5 +1,5 @@
 
-import {getNeighbors} from './queries'
+import { getNeighbors } from './queries'
 
 export const TYPE_DEFINITION = `
 type NeighborMutation {
@@ -14,9 +14,9 @@ type NeighborMutation {
 
 export default class NeighborMutation {
   
-    constructor(fields) {
-      this._data = fields || {}
-    }
+  constructor(fields) {
+    this._data = fields || {}
+  }
   
     error = () => this._data.error
     duration = () => this._data.duration
@@ -25,4 +25,4 @@ export default class NeighborMutation {
     
     neigbors = () => getNeighbors()
   
-  }
+}

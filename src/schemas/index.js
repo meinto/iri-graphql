@@ -26,7 +26,7 @@ const root = {
   ...iri.QUERIES,
   ...neighbor.QUERIES,
 
-  ...neighbor.MUTATIONS
+  ...neighbor.MUTATIONS,
 }
 
 export {

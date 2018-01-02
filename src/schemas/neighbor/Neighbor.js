@@ -13,9 +13,9 @@ type Neighbor {
 
 export default class Neighbor {
   
-    constructor(fields) {
-      this._data = fields || {}
-    }
+  constructor(fields) {
+    this._data = fields || {}
+  }
   
     address = () => this._data.address
     numberOfAllTransactions = () => this._data.numberOfAllTransactions
@@ -25,4 +25,4 @@ export default class Neighbor {
     numberOfSentTransactions = () => this._data.numberOfSentTransactions
     connectionType = () => this._data.connectionType
   
-  }
+}

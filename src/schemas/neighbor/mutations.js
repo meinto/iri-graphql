@@ -9,7 +9,7 @@ export const MUTATION_DEFINITION = `
 `
 
 /* implementation */
-export const addNeighbors = async ({ uris }) => {
+export const addNeighbors = async({ uris }) => {
 
   const options = {
     url: `http://${config.iri.domain}:${config.iri.port}`,
@@ -24,35 +24,35 @@ export const addNeighbors = async ({ uris }) => {
   }
 
   return await new Promise(resolve => {
-    curl.request(options, async (err, data) => {
-      if (err) console.log(err, data)
+    curl.request(options, async(err, data) => {
+      if (err) console.log(err, data) // eslint-disable-line
       resolve(new NeighborMutation(JSON.parse(data)))
     })
   })
 }
 
 
-export const removeNeighbors = async ({ uris }) => {
+export const removeNeighbors = async({ uris }) => {
   
-    const options = {
-      url: `http://${config.iri.domain}:${config.iri.port}`,
-      method: 'POST',
-      headers: {
-        'X-IOTA-API-Version': config.iri.apiVersion,
-      },
-      data: JSON.stringify({
-        command: 'removeNeighbors',
-        uris,
-      })
-    }
-  
-    return await new Promise(resolve => {
-      curl.request(options, async (err, data) => {
-        if (err) console.log(err, data)
-        resolve(new NeighborMutation(JSON.parse(data)))
-      })
-    })
+  const options = {
+    url: `http://${config.iri.domain}:${config.iri.port}`,
+    method: 'POST',
+    headers: {
+      'X-IOTA-API-Version': config.iri.apiVersion,
+    },
+    data: JSON.stringify({
+      command: 'removeNeighbors',
+      uris,
+    }),
   }
+  
+  return await new Promise(resolve => {
+    curl.request(options, async(err, data) => {
+      if (err) console.log(err, data) // eslint-disable-line
+      resolve(new NeighborMutation(JSON.parse(data)))
+    })
+  })
+}
 
 
 export const MUTATIONS = {

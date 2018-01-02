@@ -8,7 +8,7 @@ export const QUERY_DEFINITION = `
 `
 
 /* implementation */
-export const getNeighbors = async () => {
+export const getNeighbors = async() => {
 
   const options = {
     url: `http://${config.iri.domain}:${config.iri.port}`,
