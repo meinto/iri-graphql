@@ -1,4 +1,4 @@
-# iri graphql
+# iri-graphql - iota reference implementation graphql
 
 ## Getting started
 
