@@ -14,7 +14,7 @@ const getNodeInfo = async () => {
     url: `http://${config.iri.domain}:${config.iri.port}`,
     method: 'POST',
     headers: {
-      'X-IOTA-API-Version': 'someval',
+      'X-IOTA-API-Version': config.iri.apiVersion,
       'Content-Type': 'application/json',
     },
     data: '{"command": "getNodeInfo"}',
@@ -22,6 +22,7 @@ const getNodeInfo = async () => {
 
   return await new Promise(resolve => {
     curl.request(options, (err, data) => {
+      if (err) console.log(err, data)
       resolve(new Iri(JSON.parse(data)))
     })
   })

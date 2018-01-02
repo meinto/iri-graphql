@@ -39,6 +39,7 @@ server:
 iri:
   domain: 'localhost'
   port: 14265
+  apiVersion: '1.4'
 ```
 
 ## Queries

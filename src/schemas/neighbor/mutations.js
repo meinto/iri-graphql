@@ -15,7 +15,7 @@ export const addNeighbors = async ({ uris }) => {
     url: `http://${config.iri.domain}:${config.iri.port}`,
     method: 'POST',
     headers: {
-      'X-IOTA-API-Version': '1.4',
+      'X-IOTA-API-Version': config.iri.apiVersion,
     },
     data: `{"command": "addNeighbors", "uris":[ ${uris.map(u => `"${u}"`).join(',')} ]}`,
   }
@@ -34,7 +34,7 @@ export const removeNeighbors = async ({ uris }) => {
       url: `http://${config.iri.domain}:${config.iri.port}`,
       method: 'POST',
       headers: {
-        'X-IOTA-API-Version': '1.4',
+        'X-IOTA-API-Version': config.iri.apiVersion,
       },
       data: `{"command": "removeNeighbors", "uris":[ ${uris.map(u => `"${u}"`).join(',')} ]}`,
     }
