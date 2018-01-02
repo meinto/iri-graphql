@@ -1,8 +1,15 @@
 # iri graphql
 
-## Installation
+## Getting started
 
-clone it, install the dependencies and run it...
+```
+npm run build
+npm start
+```
+
+**for development**
+
+`npm run dev`
 
 ## Tunneling
 
