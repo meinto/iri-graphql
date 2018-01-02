@@ -1,14 +1,14 @@
 import curl from 'curlrequest'
 
-import Node from './Node'
+import Neighbour from './Neighbor'
 import { config } from '../../config'
 
 export const QUERY_DEFINITION = `
-  getNodeInfo: Node
+  getNeighbors: Neighbor
 `
 
 /* implementation */
-const getNodeInfo = async () => {
+export const getNeighbors = async () => {
 
   const options = {
     url: `http://${config.iri.domain}:${config.iri.port}`,
@@ -17,17 +17,19 @@ const getNodeInfo = async () => {
       'X-IOTA-API-Version': 'someval',
       'Content-Type': 'application/json',
     },
-    data: '{"command": "getNodeInfo"}',
+    data: '{"command": "getNeighbors"}',
   }
 
   return await new Promise(resolve => {
     curl.request(options, (err, data) => {
-      resolve(new Node(JSON.parse(data)))
+      const raw = JSON.parse(data)
+      const neighbors = raw.neighbors.map(n => new Neighbour(n))
+      resolve(neighbors)
     })
   })
 }
 
 
 export const QUERIES = {
-  getNodeInfo,
+  getNeighbors,
 }

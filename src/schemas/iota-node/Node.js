@@ -1,4 +1,6 @@
 
+import { getNeighbors } from '../neighbor/queries'
+
 export const TYPE_DEFINITION = `
 type Node {
   appName: String
@@ -12,16 +14,20 @@ type Node {
   latestMilestoneIndex: Int
   latestSolidSubtangleMilestone: String
   latestSolidSubtangleMilestoneIndex: Int
-  neighbors: Int
+  neighborCount: Int
   packetsQueueSize: Int
   time: String
   tips: Int
   transactionsToRequest: Int
   duration: Int
+
+  synced: Boolean
+
+  neighbors: [Neighbor]
 }
 `
 
-export default class Screen {
+export default class Iri {
 
   constructor(fields) {
     this._data = fields || {}
@@ -38,11 +44,16 @@ export default class Screen {
   latestMilestoneIndex = () => this._data.latestMilestoneIndex || -1
   latestSolidSubtangleMilestone = () => this._data.latestSolidSubtangleMilestone
   latestSolidSubtangleMilestoneIndex = () => this._data.latestSolidSubtangleMilestoneIndex || -1
-  neighbors = () => this._data.neighbors || -1
+  neighborCount = () => this._data.neighbors || -1
   packetsQueueSize = () => this._data.packetsQueueSize || -1
   time = () => this._data.time
   tips = () => this._data.tips || -1
   transactionsToRequest = () => this._data.transactionsToRequest || -1
   duration = () => this._data.duration || -1
 
+  synced = () => this._data.latestMilestoneIndex === this._data.latestSolidSubtangleMilestoneIndex
+
+  neighbors = () => getNeighbors()
+
 }
+
