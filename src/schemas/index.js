@@ -1,17 +1,17 @@
 import { buildSchema } from 'graphql'
 
-import * as node from './iota-node'
-import { TYPE_DEFINITION as IOTA_NODE_TYPE_DEFINITION } from './iota-node/Node'
+import * as iri from './iri'
+import { TYPE_DEFINITION as IRI_TYPE_DEFINITION } from './iri/Iri'
 
 import * as neighbor from './neighbor'
 import { TYPE_DEFINITION as NEIGHBOR_TYPE_DEFINITION } from './neighbor/Neighbor'
 
 const schema = buildSchema(`
-  ${IOTA_NODE_TYPE_DEFINITION}
+  ${IRI_TYPE_DEFINITION}
   ${NEIGHBOR_TYPE_DEFINITION}
 
   type Query {
-    ${node.QUERY_DEFINITION}
+    ${iri.QUERY_DEFINITION}
     ${neighbor.QUERY_DEFINITION}
   }
 
@@ -21,7 +21,7 @@ const schema = buildSchema(`
   // }
 
 const root = {
-  ...node.QUERIES,
+  ...iri.QUERIES,
   ...neighbor.QUERIES, 
 }
 

@@ -2,7 +2,7 @@
 import { getNeighbors } from '../neighbor/queries'
 
 export const TYPE_DEFINITION = `
-type Node {
+type Iri {
   appName: String
   appVersion: String
   jreAvailableProcessors: Int

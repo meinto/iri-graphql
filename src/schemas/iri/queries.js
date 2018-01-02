@@ -1,10 +1,10 @@
 import curl from 'curlrequest'
 
-import Node from './Node'
+import Iri from './Iri'
 import { config } from '../../config'
 
 export const QUERY_DEFINITION = `
-  getNodeInfo: Node
+  getNodeInfo: Iri
 `
 
 /* implementation */
@@ -22,7 +22,7 @@ const getNodeInfo = async () => {
 
   return await new Promise(resolve => {
     curl.request(options, (err, data) => {
-      resolve(new Node(JSON.parse(data)))
+      resolve(new Iri(JSON.parse(data)))
     })
   })
 }
