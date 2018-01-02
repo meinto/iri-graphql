@@ -11,3 +11,11 @@ http://iri-playbook.readthedocs.io/en/master/remote-access.html?highlight=tunnel
 ## Config
 
 TBD
+
+## Queries
+
+TBD
+
+## Mutations 
+
+TBD
