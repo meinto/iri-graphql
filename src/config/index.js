@@ -21,7 +21,7 @@ try {
     case ENV.DEV: 
       enhanceConfig = yaml.safeLoad(fs.readFileSync(path.resolve(__dirname, 'dev.config.yml'), 'utf8'))
       break
-    case ENV.PRD: 
+    default: 
       enhanceConfig = yaml.safeLoad(fs.readFileSync(path.resolve(__dirname, 'prd.config.yml'), 'utf8'))
       break
   }

@@ -1,2 +1,5 @@
 node_modules/
 dist/
+
+prd.config.yml
+dev.config.yml
