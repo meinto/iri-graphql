@@ -1,0 +1,9 @@
+endpoints:
+  graphql: /graphql
+
+server:
+  port: 13204
+
+iri:
+  domain: 'localhost'
+  port: 14265
