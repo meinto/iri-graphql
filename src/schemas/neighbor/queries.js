@@ -4,7 +4,7 @@ import Neighbour from './Neighbor'
 import { config } from '../../config'
 
 export const QUERY_DEFINITION = `
-  getNeighbors: Neighbor
+  getNeighbors: [Neighbor]
 `
 
 /* implementation */
