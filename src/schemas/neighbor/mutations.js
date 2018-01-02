@@ -17,11 +17,15 @@ export const addNeighbors = async ({ uris }) => {
     headers: {
       'X-IOTA-API-Version': config.iri.apiVersion,
     },
-    data: `{"command": "addNeighbors", "uris":[ ${uris.map(u => `"${u}"`).join(',')} ]}`,
+    data: JSON.stringify({
+      command: 'addNeighbors',
+      uris,
+    }),
   }
 
   return await new Promise(resolve => {
     curl.request(options, async (err, data) => {
+      if (err) console.log(err, data)
       resolve(new NeighborMutation(JSON.parse(data)))
     })
   })
@@ -36,11 +40,15 @@ export const removeNeighbors = async ({ uris }) => {
       headers: {
         'X-IOTA-API-Version': config.iri.apiVersion,
       },
-      data: `{"command": "removeNeighbors", "uris":[ ${uris.map(u => `"${u}"`).join(',')} ]}`,
+      data: JSON.stringify({
+        command: 'removeNeighbors',
+        uris,
+      })
     }
   
     return await new Promise(resolve => {
       curl.request(options, async (err, data) => {
+        if (err) console.log(err, data)
         resolve(new NeighborMutation(JSON.parse(data)))
       })
     })

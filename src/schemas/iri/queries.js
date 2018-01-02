@@ -17,7 +17,9 @@ const getNodeInfo = async () => {
       'X-IOTA-API-Version': config.iri.apiVersion,
       'Content-Type': 'application/json',
     },
-    data: '{"command": "getNodeInfo"}',
+    data: JSON.stringify({
+      command: 'getNodeInfo'
+    })
   }
 
   return await new Promise(resolve => {
