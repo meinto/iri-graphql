@@ -1,0 +1,14 @@
+{
+  "name": "iri-graphql",
+  "version": "1.0.0",
+  "description": "a graphql server to use the rest interface of an iri",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "iri"
+  ],
+  "author": "Tobias Meinhardt",
+  "license": "MIT"
+}
