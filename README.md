@@ -25,4 +25,5 @@ TBD
 
 ## Mutations 
 
-TBD
+- addNeighbors
+- removeNeigbors

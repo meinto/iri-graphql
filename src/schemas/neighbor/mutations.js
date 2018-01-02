@@ -1,12 +1,11 @@
 import curl from 'curlrequest'
 
-import Neighbour from './Neighbor'
+import NeighborMutation from './NeighborMutation'
 import { config } from '../../config'
-import { getNeighbors } from './queries'
 
 export const MUTATION_DEFINITION = `
-  addNeighbors(uris: [String]) : [Neighbor]
-  removeNeighbors(uris: [String]) : [Neighbor]
+  addNeighbors(uris: [String]) : NeighborMutation
+  removeNeighbors(uris: [String]) : NeighborMutation
 `
 
 /* implementation */
@@ -23,9 +22,7 @@ export const addNeighbors = async ({ uris }) => {
 
   return await new Promise(resolve => {
     curl.request(options, async (err, data) => {
-      console.log(err, data)
-      const neighbors = await getNeighbors()
-      resolve(neighbors)
+      resolve(new NeighborMutation(JSON.parse(data)))
     })
   })
 }
@@ -44,9 +41,7 @@ export const removeNeighbors = async ({ uris }) => {
   
     return await new Promise(resolve => {
       curl.request(options, async (err, data) => {
-        console.log(err, data)
-        const neighbors = await getNeighbors()
-        resolve(neighbors)
+        resolve(new NeighborMutation(JSON.parse(data)))
       })
     })
   }
