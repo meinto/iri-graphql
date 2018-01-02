@@ -15,14 +15,16 @@ const schema = buildSchema(`
     ${neighbor.QUERY_DEFINITION}
   }
 
+  type Mutation {
+    ${neighbor.MUTATION_DEFINITION}
+  }
 `)
-  // type Mutation {
-  //   ${node.MUTATION_DEFINITION}
-  // }
 
 const root = {
   ...iri.QUERIES,
-  ...neighbor.QUERIES, 
+  ...neighbor.QUERIES,
+
+  ...neighbor.MUTATIONS
 }
 
 export {
